@@ -1,0 +1,56 @@
+public class ticketmachine{
+    private int price;
+    private int balance;
+    private int total;
+    
+    public ticketmachine(int ticketCost){
+        if(ticketCost>0){
+            price = ticketCost;
+        }
+        else{
+            price=20;
+        }
+        balance = 0;
+        total = 0;
+    }
+
+    public int getPrice(){
+    return price;
+    }
+
+    public int getBalance(){
+        return balance;
+    }
+    public void setBalance(int amount){
+        if(amount>0){
+            balance=amount;
+        }
+    }
+    public void insertMoney(int amount){
+        if(amount >0){
+            balance += amount;
+        }
+        else{
+            System.out.println("Use a positive amount: " + amount);
+        }
+    }
+    
+    public void printTicket(){
+        System.out.println("Memeriksa apakah saldo cukup...");
+        if(balance >= price){
+            System.out.println("Saldo cukup. Mencetak tiket...");
+            System.out.println("################");
+            System.out.println("# The BlueJ Line");
+            System.out.println("# Ticket");
+            System.out.println("#"+price+" cents");
+            System.out.println("################");
+            System.out.println();
+            
+            total += balance;
+            balance = 0;
+        }
+        else{
+            System.out.println("You must insert at least: " + (price-balance) + " more cents.");
+        }
+    }
+}
